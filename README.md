@@ -1,2 +1,2 @@
-# scratch-tools-i-made
-私がスクラッチのいろいろなツールを置いています。
+# Scratch tools I made/いろいろscratchツール
+私が書いたスクラッチで使えるjavascriptなどでスクリプトを置いています。
