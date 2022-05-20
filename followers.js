@@ -44,7 +44,7 @@ function getfollower(){
             const link=new Blob([text],{type:"text/plain"});
             const url = URL.createObjectURL(link);
             const a = document.createElement("a");
-            document.body.appendChild(a);//
+            document.body.appendChild(a);
             a.download = urname+"'s followers.txt";
             a.href = url;
             a.click();
