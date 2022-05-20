@@ -1,6 +1,7 @@
 
 function inviteall(username,startat){
     let url="";
+    startat=startat;
     let i=startat;
     {
         const url1=location.pathname;
@@ -21,7 +22,6 @@ function inviteall(username,startat){
         token=cok[1][cok[0].indexOf(' scratchcsrftoken')];
     }
     const invite = async (i) => {
-
         let res = await fetch( `/site-api/users/curators-in/`+url[1]+`/invite_curator/?usernames=`+username[i], { headers: { "x-csrftoken": token, "x-requested-with": "XMLHttpRequest", }, method: "PUT", credentials: "include", } );
         if (res.status === 200) {
             console.log(username[i]+"を招待したぞ("+i+"人目)、お礼ぐらい言えボケが");
@@ -33,7 +33,7 @@ function inviteall(username,startat){
     function intervalscript(){
         invite(i);
         i++;
-        if(i>=username.length||i>300){
+        if(i>=username.length||i>startat+300){
             clearInterval(interval);
         }
     }
@@ -61,6 +61,7 @@ function gettxt(){
           if(startat===""){
               startat=0;
           }
+          startat=parseInt(startat);
           inviteall(result,startat);
         }
         file.readAsText(this.files[0]);
